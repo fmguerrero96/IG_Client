@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom"
+
 export default function WelcomeScreen(){
     return(
         <main>
@@ -7,9 +9,9 @@ export default function WelcomeScreen(){
             <div>
                 userIcon
             </div>
-            <a href="">Login</a>
+            <Link to={'/login'}>Login</Link>
             <div>
-                Don't have an account yet? <a href="">Register Here</a>
+                Don't have an account yet? <Link to={'/register'}>Register Here</Link>
             </div>
         </main>
     )
