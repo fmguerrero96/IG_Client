@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { Link } from "react-router-dom";
 
 export default function RegisterPage() {
     const [username, setUsername] = useState('');
@@ -23,7 +24,7 @@ export default function RegisterPage() {
                 setError(errorData.error[0].msg || errorData.error);
                 throw new Error(errorData.error[0].msg || errorData.error || 'Registration failed');
             }
-            setSuccess('Registration successful! You can now log in.');
+            setSuccess('Registration successful! You can now');
             setPassword('')
             setUsername('')
         }  catch(err) {
@@ -34,8 +35,7 @@ export default function RegisterPage() {
     return(
         <form className="register" onSubmit={handleRegister}>
             <h1>Register</h1>
-            {error && <div className="error">{error}</div>}
-            {success && <div className="success">{success}</div>}
+
             <input type="text" 
                 placeholder="Username" required
                 value={username}
@@ -47,6 +47,8 @@ export default function RegisterPage() {
                 onChange={e => setPassword(e.target.value)}
                  />
             <button>Register</button>
+            {error && <div className="error">{error}</div>}
+            {success && <div className="success">{success} <Link to={'/login'}>login</Link></div>}
         </form>
     )
 }
