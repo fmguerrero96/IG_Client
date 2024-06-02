@@ -7,8 +7,16 @@ export default function LoginPage() {
     return(
         <form className="login">
             <h1>Login</h1>
-            <input type="text" placeholder="Username" required />
-            <input type="password" placeholder="Password" required />
+            <input type="text" placeholder="Username" 
+            required
+            value={username}
+            onChange={e => setUsername(e.target.value)} 
+            />
+            <input type="password" placeholder="Password" 
+            required
+            value={password}
+            onChange={e => setPassword(e.target.value)} 
+            />
             <button>Login</button>
         </form>
     )
