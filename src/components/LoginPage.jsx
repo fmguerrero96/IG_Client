@@ -15,7 +15,8 @@ export default function LoginPage() {
             const response = await fetch('http://localhost:3000/users/login', {
                 method: 'POST',
                 body: JSON.stringify({username, password}),
-                headers: {'Content-Type': 'application/json'}
+                headers: {'Content-Type': 'application/json'},
+                credentials: 'include', //include cookies in request
             })
 
             if(response.status === 200){
