@@ -1,12 +1,15 @@
 import { useState } from "react";
+import { Navigate } from "react-router-dom";
 
 export default function LoginPage() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('')
+    const [redirect, setRedirect] = useState(false)
 
     const handleLogin = async (e) => {
          e.preventDefault();
+         setError('')
 
          try{
             const response = await fetch('http://localhost:3000/users/login', {
@@ -15,14 +18,20 @@ export default function LoginPage() {
                 headers: {'Content-Type': 'application/json'}
             })
 
-            if(response !== 200){
-                const errorData = await response.json()
-                console.log(errorData.error)
-                setError(errorData)
+            if(response.status === 200){
+                setRedirect(true)
             }
+            const errorData = await response.json()
+            setError(errorData.error)
+            
          } catch(err) {
-
+            setError(err.error)
+            console.log(error)
          }
+    }
+
+    if(redirect){
+        return <Navigate to={'/homePage'}/>
     }
 
     return(
@@ -39,7 +48,7 @@ export default function LoginPage() {
             onChange={e => setPassword(e.target.value)} 
             />
             <button>Login</button>
-            {error && <div>{error.error}</div>}
+            {error && <div>{error}</div>}
         </form>
     )
 }
