@@ -91,7 +91,7 @@ html{
     color: rgb(0, 136, 254);
 }
 
-.registerPage{
+.registerPage, .loginPage{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -100,7 +100,7 @@ html{
     min-height: 100vh;
 }
 
-.register{
+.register, .login{
     display: flex;
     flex-direction: column;
     border: 1px solid black;
@@ -110,7 +110,7 @@ html{
     border-radius: 8px;
 }
 
-.register h1{
+.register h1, .login h1{
     font-family: "Style Script", cursive;
     font-weight: 400;
     font-style: normal;
@@ -118,7 +118,7 @@ html{
     margin: 3%  0 3% 0;
 }
 
-.register input{
+.register input, .login input{
     width: 70%;
     height: 10%;
     align-self: center;
@@ -128,7 +128,7 @@ html{
     border: 2px solid rgb(151, 151, 151);
 }
 
-.register button{
+.register button, .login button{
     margin-top: 4%;
     width: 30%;
     height: 10%;
@@ -154,12 +154,12 @@ html{
     color: green;
 }
 
-.registerPage p{
+.registerPage p, .loginPage p{
     margin-top: 10px;
     font-weight: bold;
 }
 
-.registerPage p a{
+.registerPage p a, .loginPage p a{
     text-decoration: none;
     color: rgb(0, 136, 254);
 }
