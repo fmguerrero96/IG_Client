@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Navigate } from "react-router-dom";
+import { Navigate, Link } from "react-router-dom";
 
 export default function LoginPage() {
     const [username, setUsername] = useState('');
@@ -52,8 +52,9 @@ export default function LoginPage() {
                         onChange={e => setPassword(e.target.value)} 
                     />
                     <button>Login</button>
-                    {error && <div>{error}</div>}
+                    {error && <div className="error">{error}</div>}
                 </form>
+                <p>Don't have an account? <Link to={'/register'}>Register Here</Link></p>
             </div>
         </main>
     )
