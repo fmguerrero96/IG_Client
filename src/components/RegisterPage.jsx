@@ -33,22 +33,26 @@ export default function RegisterPage() {
     }
 
     return(
-        <form className="register" onSubmit={handleRegister}>
-            <h1>Register</h1>
+        <main>
+            <div className="registerPage">
+                <form className="register" onSubmit={handleRegister}>
+                    <h1>Register</h1>
 
-            <input type="text" 
-                placeholder="Username" required
-                value={username}
-                onChange={e => setUsername(e.target.value)}
-                 />
-            <input type="password" 
-                placeholder="Password" required
-                value={password}
-                onChange={e => setPassword(e.target.value)}
-                 />
-            <button>Register</button>
-            {error && <div className="error">{error}</div>}
-            {success && <div className="success">{success} <Link to={'/login'}>login</Link></div>}
-        </form>
+                    <input type="text" 
+                        placeholder="Username" required
+                        value={username}
+                        onChange={e => setUsername(e.target.value)}
+                        />
+                    <input type="password" 
+                        placeholder="Password" required
+                        value={password}
+                        onChange={e => setPassword(e.target.value)}
+                        />
+                    <button>Register</button>
+                    {error && <div className="error">{error}</div>}
+                    {success && <div className="success">{success} <Link to={'/login'}>login</Link></div>}
+                </form>
+            </div>
+        </main>
     )
 }
