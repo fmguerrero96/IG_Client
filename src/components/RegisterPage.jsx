@@ -24,7 +24,7 @@ export default function RegisterPage() {
                 setError(errorData.error[0].msg || errorData.error);
                 throw new Error(errorData.error[0].msg || errorData.error || 'Registration failed');
             }
-            setSuccess('Registration successful! You can now');
+            setSuccess('Registration successful!');
             setPassword('')
             setUsername('')
         }  catch(err) {
@@ -50,7 +50,7 @@ export default function RegisterPage() {
                         />
                     <button>Register</button>
                     {error && <div className="error">*{error}</div>}
-                    {success && <div className="success">*{success} <Link to={'/login'}>login</Link></div>}
+                    {success && <div className="success">*{success}</div>}
                 </form>
                 <p>Already have an account? <Link to={'/login'}>Login here</Link></p>
             </div>
