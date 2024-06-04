@@ -49,9 +49,10 @@ export default function RegisterPage() {
                         onChange={e => setPassword(e.target.value)}
                         />
                     <button>Register</button>
-                    {error && <div className="error">{error}</div>}
-                    {success && <div className="success">{success} <Link to={'/login'}>login</Link></div>}
+                    {error && <div className="error">*{error}</div>}
+                    {success && <div className="success">*{success} <Link to={'/login'}>login</Link></div>}
                 </form>
+                <p>Already have an account? <Link to={'/login'}>Login here</Link></p>
             </div>
         </main>
     )
