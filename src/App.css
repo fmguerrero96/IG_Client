@@ -103,7 +103,6 @@ html{
 .register, .login{
     display: flex;
     flex-direction: column;
-    border: 1px solid black;
     width: 35%;
     height: 40vh;
     border: 1px solid rgb(197, 197, 197);
@@ -162,4 +161,31 @@ html{
 .registerPage p a, .loginPage p a{
     text-decoration: none;
     color: rgb(0, 136, 254);
+}
+
+header{
+    /* border: 1px solid black; */
+    border-bottom: 1px solid rgb(197, 197, 197);
+    margin: auto;
+    width: 60%;
+    height: 10vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .header-logo{
+    font-family: "Style Script", cursive;
+    text-decoration: none;
+    color: black;
+    font-size: 3rem;
+    margin-left: 7%;
+}
+
+header nav{
+    display: flex;
+    margin-right: 7%;
+    width: 30%;
+    justify-content: space-around;
+    font-weight: 100;
 }
