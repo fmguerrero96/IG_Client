@@ -189,3 +189,26 @@ header nav{
     justify-content: space-around;
     font-weight: 100;
 }
+
+.home-page{
+    display: flex;
+    flex-direction: column;
+}
+
+.home-page div{
+    height: 80vh;
+    margin: auto;
+    width: 60%;
+}
+
+footer{
+    margin: auto;
+    width: 60%;
+    height: 10vh;
+    border-top: 1px solid rgb(197, 197, 197);
+    margin-top: auto;
+    align-self:flex-end;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
