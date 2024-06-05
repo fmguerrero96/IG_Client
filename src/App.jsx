@@ -9,8 +9,6 @@ import {Route, Routes} from "react-router-dom"
 import { UserContextProvider } from './UserContext'
 
 function App() {
-  
-
   return (
     <UserContextProvider>
       <Routes>
@@ -22,7 +20,6 @@ function App() {
         </Route>
       </Routes>
     </UserContextProvider>
-    
   )
 }
 
