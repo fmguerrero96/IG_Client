@@ -1,31 +1,10 @@
 import { Link, Navigate } from "react-router-dom";
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { UserContext } from "../UserContext";
 
 export default function Header() {
-    const {userInfo, setUserInfo} = useContext(UserContext);
+    const {userInfo} = useContext(UserContext);
 
-    useEffect(() => {
-        const getUser = async () => {
-            try{
-                const response = await fetch('http://localhost:3000/user', {
-                credentials: 'include'
-            })
-            if(response.ok){
-                const userData = await response.json()
-                setUserInfo(userData)
-            } else {
-                setUserInfo(null)
-            }
-            }catch (err) {
-                console.error('Error fetching user:', err);
-                setUserInfo(null);
-            }
-            
-        }
-
-        getUser()
-    }, []);
 
     if(!userInfo){
         return(
