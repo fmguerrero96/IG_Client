@@ -1,11 +1,13 @@
-import { useState } from "react"
+import { useState, useContext } from "react"
 import { Link } from "react-router-dom";
+import { UserContext } from "../UserContext";
 
 export default function RegisterPage() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
     const [success, setSuccess] = useState('');
+    const {userInfo} = useContext(UserContext);
 
     const handleRegister = async (e) => {
         e.preventDefault();
