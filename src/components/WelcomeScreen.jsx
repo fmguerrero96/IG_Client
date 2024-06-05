@@ -1,7 +1,14 @@
-import { Link } from "react-router-dom"
+import { Link, Navigate } from "react-router-dom"
 import Gallery from "./Gallery"
+import { UserContext } from "../UserContext";
+import { useState, useContext } from "react";
 
 export default function WelcomeScreen(){
+    const {setUserInfo, userInfo} = useContext(UserContext);
+
+    if(userInfo){
+        return <Navigate to={'/homePage'}/>
+    }
     return(
         <main>
             <div className="welcome-screen">
