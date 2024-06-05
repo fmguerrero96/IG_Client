@@ -1,5 +1,5 @@
 import { useState, useContext } from "react"
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import { UserContext } from "../UserContext";
 
 export default function RegisterPage() {
@@ -32,6 +32,10 @@ export default function RegisterPage() {
         }  catch(err) {
             console.log(err)
         } 
+    }
+
+    if(userInfo){
+        return <Navigate to={'/homePage'}/>
     }
 
     return(
