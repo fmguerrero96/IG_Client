@@ -7,7 +7,7 @@ export default function LoginPage() {
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
     const [redirect, setRedirect] = useState(false);
-    const {setUserInfo} = useContext(UserContext);
+    const {setUserInfo, userInfo} = useContext(UserContext);
 
     const handleLogin = async (e) => {
          e.preventDefault();
@@ -32,6 +32,9 @@ export default function LoginPage() {
             setError(err.error)
             console.log(error)
          }
+    }
+    if(userInfo){
+        return <Navigate  to={'/homePage'}/>
     }
 
     if(redirect){
