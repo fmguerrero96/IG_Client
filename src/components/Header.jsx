@@ -18,7 +18,7 @@ export default function Header() {
 
             <nav>
                 <p>Welcome: {userInfo.username}</p>
-                <p onClick={logout}>Logout</p>
+                <p className="logout" onClick={logout}>Logout</p>
             </nav>
         </header>
     )
