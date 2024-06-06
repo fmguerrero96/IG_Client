@@ -3,7 +3,7 @@ import { useContext } from "react";
 import { UserContext } from "../UserContext";
 
 export default function Header() {
-    const {userInfo} = useContext(UserContext);
+    const {userInfo, logout} = useContext(UserContext);
 
 
     if(!userInfo){
@@ -18,7 +18,7 @@ export default function Header() {
 
             <nav>
                 <p>Welcome: {userInfo.username}</p>
-                <p>Logout</p>
+                <p onClick={logout}>Logout</p>
             </nav>
         </header>
     )
