@@ -49,11 +49,13 @@ export default function LoginPage() {
 
                     <input type="text" placeholder="Username" 
                         required
+                        name="username"
                         value={username}
                         onChange={e => setUsername(e.target.value)} 
                     />
                     <input type="password" placeholder="Password" 
                         required
+                        name="password"
                         value={password}
                         onChange={e => setPassword(e.target.value)} 
                     />
