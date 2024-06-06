@@ -4,7 +4,7 @@ export default function Footer(){
     return(
         <footer>
             <Link>Feed</Link>
-            <Link>New Post</Link>
+            <Link to={'/create'}>New Post</Link>
             <Link>Profile</Link>
         </footer>
     )
