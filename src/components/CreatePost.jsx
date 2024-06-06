@@ -1,6 +1,6 @@
 export default function CreatePost() {
     return(
-        <div>
+        <div className="create-post">
             Create new post (not implemented)
         </div>
     )
