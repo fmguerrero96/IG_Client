@@ -217,3 +217,8 @@ footer{
     justify-content: space-around;
     align-items: center;
 }
+
+footer a{
+    color: rgb(0, 136, 254);
+    text-decoration: none;
+}
