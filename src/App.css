@@ -190,6 +190,10 @@ header nav{
     font-weight: 100;
 }
 
+.logout{
+    cursor: pointer;
+}
+
 .home-page{
     display: flex;
     flex-direction: column;
