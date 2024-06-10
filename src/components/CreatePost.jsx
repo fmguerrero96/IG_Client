@@ -15,7 +15,7 @@ export default function CreatePost() {
         const data = new FormData();
         data.set('caption', caption)
         data.set('file', files[0])
-        data.set('author', userInfo.id)
+        data.set('author', (userInfo._id || userInfo.id))
 
         const response = await fetch('http://localhost:3000/post', {
             method: 'POST',
@@ -54,7 +54,7 @@ export default function CreatePost() {
                 onChange={e => setCaption(e.target.value)} />
 
                 <button>Create Post</button>
-                {error && <div>{error.error}</div>}
+                {error && <div>{error.statusText}</div>}
             </form>
         </div>
     )
