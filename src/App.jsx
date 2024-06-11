@@ -6,6 +6,7 @@ import RegisterPage from './components/RegisterPage'
 import HomePage from './components/HomePage'
 import CreatePost from './components/CreatePost'
 import Layout from './components/Layout'
+import Profile from './components/Profile'
 import {Route, Routes} from "react-router-dom"
 import { UserContextProvider } from './UserContext'
 
@@ -19,6 +20,7 @@ function App() {
         <Route path='/' element={<Layout/>}>
           <Route path='/homePage' element={<HomePage/>} />
           <Route path='/create' element={<CreatePost/>} />
+          <Route path='/profile' element={<Profile/>} />
         </Route>
       </Routes>
     </UserContextProvider>
