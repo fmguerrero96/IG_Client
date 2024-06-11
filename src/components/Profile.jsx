@@ -1,9 +1,9 @@
 import { useState, useEffect, useContext } from "react";
-import { UserContext } from "../UserContext";
+// import { UserContext } from "../UserContext";
 
 export default function Profile() {
     const [userProfile, setUserProfile] = useState({})
-    const { userInfo } = useContext(UserContext);
+    // const { userInfo } = useContext(UserContext);
 
     useEffect(() => {
         const getProfile = async () => {
@@ -24,8 +24,25 @@ export default function Profile() {
     }, []);
 
     return(
-        <div className="profile">
-            Not implemented
-        </div>
+        <main className="profile">
+            <div className="profile-info">
+                <span>
+                    <img src="../src/assets/account_circle.png" alt="profile picture" />
+                    <span>{userProfile.username}</span>
+                </span>
+                <span>
+                    <span>{userProfile.posts ? (userProfile.posts.length) : (0)}</span>
+                    <span>Posts</span>
+                </span>
+                <span>
+                    <span>{userProfile.followers ? (userProfile.followers.length) : (0)}</span>
+                    <span>Followers</span>
+                </span>
+                <span>
+                    <span>{userProfile.following ? (userProfile.following.length) : (0)}</span>
+                    <span>Following</span>
+                </span>
+            </div>
+        </main>
     )
 };
