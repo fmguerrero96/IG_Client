@@ -27,18 +27,18 @@ export default function Profile() {
         <main className="profile">
             <div className="profile-info">
                 <span>
-                    <img src="../src/assets/account_circle.png" alt="profile picture" />
+                    <img className="profile-pic" src="../src/assets/account_circle.png" alt="profile picture" />
                     <span>{userProfile.username}</span>
                 </span>
-                <span>
+                <span className="post-count">
                     <span>{userProfile.posts ? (userProfile.posts.length) : (0)}</span>
                     <span>Posts</span>
                 </span>
-                <span>
+                <span className="follower-count">
                     <span>{userProfile.followers ? (userProfile.followers.length) : (0)}</span>
                     <span>Followers</span>
                 </span>
-                <span>
+                <span className="following-count">
                     <span>{userProfile.following ? (userProfile.following.length) : (0)}</span>
                     <span>Following</span>
                 </span>
