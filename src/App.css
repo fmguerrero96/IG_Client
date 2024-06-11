@@ -203,7 +203,7 @@ header nav{
     flex-direction: column;
 }
 
-.home-page div, .create-post{
+.home-page div, .create-post, .profile{
     height: 80vh;
     margin: auto;
     width: 60%;
