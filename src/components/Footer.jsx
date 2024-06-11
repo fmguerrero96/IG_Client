@@ -5,7 +5,7 @@ export default function Footer(){
         <footer>
             <Link>Feed</Link>
             <Link to={'/create'}>New Post</Link>
-            <Link>Profile</Link>
+            <Link to={'/profile'}>Profile</Link>
         </footer>
     )
 };
