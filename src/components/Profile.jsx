@@ -1,9 +1,7 @@
-import { useState, useEffect, useContext } from "react";
-// import { UserContext } from "../UserContext";
+import { useState, useEffect } from "react";
 
 export default function Profile() {
     const [userProfile, setUserProfile] = useState({})
-    // const { userInfo } = useContext(UserContext);
 
     useEffect(() => {
         const getProfile = async () => {
