@@ -8,7 +8,7 @@ export function UserContextProvider({children}){
     useEffect(() => {
         const getUser = async () => {
             try{
-                const response = await fetch('http://localhost:3000/user', {
+                const response = await fetch('http://localhost:3000/user/token', {
                 credentials: 'include'
             })
             if(response.ok){
