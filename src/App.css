@@ -268,3 +268,27 @@ footer a{
     margin-top: 3%;
     color: red;
 }
+
+.profile-info{
+    display: flex;
+    /* border: 1px solid blue; */
+    justify-content: space-between;
+    width: 70%;
+    margin: auto;
+}
+
+.profile-info span img{
+    width: 20vh;
+    filter: overlay-color('#118800');
+}
+
+div.profile-info > span{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.post-count, .following-count, .follower-count{
+    gap: 6%;
+}
