@@ -11,7 +11,8 @@ export default function ProfileInfo() {
                 })
 
                 if(response.ok){
-                    setUserProfile(await response.json())
+                    const profile = await response.json()
+                    setUserProfile(profile)
                 }
             } catch(err) {
                 console.log(err)
