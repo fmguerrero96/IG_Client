@@ -42,6 +42,14 @@ export default function ProfileInfo() {
                     <span>Following</span>
                 </span>
             </div>
+
+            <div className="prfile-gallery">
+                {userProfile.posts ? (userProfile.posts.map( post => (
+                    <img src={'http://localhost:3000/'+post.picture} key={post._id}/>
+                ))) : (
+                    <p className="noPosts">No posts yet</p>
+                )}
+            </div>
         </main>
     )
 };
