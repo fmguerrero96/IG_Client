@@ -292,3 +292,33 @@ div.profile-info > span{
 .post-count, .following-count, .follower-count{
     gap: 6%;
 }
+
+.profile {
+    overflow: scroll;
+}
+
+.profile-gallery{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 2%;
+    background-color: rgb(224, 224, 224);
+    border-radius: 6px;
+}
+
+.pic{
+    max-width: 25vw;
+    max-height: 30vh;
+    margin: 1% 1% 1% 1%;
+    border-radius: 6px;
+    cursor: pointer;
+    -webkit-box-shadow: 5px 5px 9px -1px rgba(117,117,117,1);
+    -moz-box-shadow: 5px 5px 9px -1px rgba(117,117,117,1);
+    box-shadow: 5px 5px 9px -1px rgba(117,117,117,1);
+}
+
+.noPosts{
+    text-align: center;
+    margin-top: 20%;
+    font-size: 2rem;
+}
