@@ -45,15 +45,16 @@ export default function Profile() {
                 </span>
             </div>
 
-            <div className="prfile-gallery">
-                {posts.length >0 ? (
+            <div className="profile-gallery">
+                {posts.length > 0 && (
                      posts.map(post => (
-                        <img src={`http://localhost:3000/${post.picture}`} key={post._id}/>
+                        <img className="pic" src={`http://localhost:3000/${post.picture}`} key={post._id}/>
                      ))
-                ) : (
-                   <div>No posts yet</div>
-                )}
+                )} 
             </div>
+            {posts.length === 0 && (
+                <div className="noPosts">No posts yet</div>
+            )}
         </main>
     )
 };
