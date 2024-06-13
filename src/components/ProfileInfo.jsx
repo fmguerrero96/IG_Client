@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 
 export default function ProfileInfo() {
     const [userProfile, setUserProfile] = useState({})
+    const [posts, setPosts] = useState([])
 
     useEffect(() => {
         const getProfile = async () => {
@@ -13,6 +14,7 @@ export default function ProfileInfo() {
                 if(response.ok){
                     const profile = await response.json()
                     setUserProfile(profile)
+                    setPosts(profile.posts)
                 }
             } catch(err) {
                 console.log(err)
@@ -44,10 +46,12 @@ export default function ProfileInfo() {
             </div>
 
             <div className="prfile-gallery">
-                {userProfile.posts ? (userProfile.posts.map( post => (
-                    <img src={'http://localhost:3000/'+post.picture} key={post._id}/>
-                ))) : (
-                    <p className="noPosts">No posts yet</p>
+                {posts.length >0 ? (
+                     posts.map(post => (
+                        <img src={`http://localhost:3000/${post.picture}`} key={post._id}/>
+                     ))
+                ) : (
+                   <div>No posts yet</div>
                 )}
             </div>
         </main>
