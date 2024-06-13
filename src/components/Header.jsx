@@ -17,9 +17,16 @@ export default function Header() {
             <Link to={'/homePage'} className="header-logo">Fakestagram</Link>
 
             <nav>
-                <p>Welcome: {userInfo.username}</p>
-                <p className="logout" onClick={logout}>Logout</p>
+                <div>
+                    <p>Welcome: {userInfo.username}</p>
+                    <p className="logout" onClick={logout}>Logout</p>
+                </div>
+                
+                <form className="search-form" >
+                    <input type="text" name="search" placeholder="Find other people" />
+                </form>
             </nav>
+            
         </header>
     )
 };
