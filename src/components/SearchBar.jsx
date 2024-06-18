@@ -1,10 +1,16 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Navigate } from "react-router-dom";
 
 export default function SearchBar () {
     const [username, setUsername] = useState('');
     const [user, setUser] = useState(null);
     const [redirect, setRedirect] = useState(false);
+
+    useEffect(() => {
+        if(redirect === true){
+            setRedirect(false)
+        }
+    },[redirect]);
 
     const handleSearch = async (e) => {
         e.preventDefault()
@@ -18,6 +24,7 @@ export default function SearchBar () {
                 const user = await response.json();
                 setUser(user)
                 setRedirect(true) // Redirect to the user's profile
+                setUsername('')
             } else {
                 alert('User not found');
             }
