@@ -45,6 +45,8 @@ export default function Profile() {
                 </span>
             </div>
 
+            <button className="edit-profile">Edit Profile</button>
+
             <div className="profile-gallery">
                 {posts.length > 0 && (
                      posts.map(post => (
