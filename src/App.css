@@ -298,6 +298,11 @@ footer a{
     margin: auto;
 }
 
+.edit-profile, .follow-btn{
+    margin-left: 53%;
+    width: 20%;
+}
+
 .profile-info span img{
     width: 20vh;
     filter: overlay-color('#118800');
