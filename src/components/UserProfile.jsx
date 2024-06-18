@@ -14,7 +14,6 @@ export default function UserProfile() {
 
                 if (response.ok) {
                     const profile = await response.json();
-                    console.log(profile)
                     setUserProfile(profile);
                 } else {
                     console.error('User profile not found');
