@@ -7,6 +7,8 @@ export default function SearchBar () {
     const [redirect, setRedirect] = useState(false);
 
     useEffect(() => {
+        //Set redirect variable back to false after a successful search
+        //to avoid unexpected behavior in app.
         if(redirect === true){
             setRedirect(false)
         }
