@@ -59,6 +59,8 @@ export default function UserProfile() {
             </span>
         </div>
 
+        <button className="follow-btn">Follow</button>
+
         <div className="profile-gallery">
             {posts.length > 0 && (
                  posts.map(post => (
