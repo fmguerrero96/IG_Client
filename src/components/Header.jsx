@@ -1,6 +1,7 @@
 import { Link, Navigate } from "react-router-dom";
 import { useContext } from "react";
 import { UserContext } from "../UserContext";
+import SearchBar from "./SearchBar";
 
 export default function Header() {
     const {userInfo, logout} = useContext(UserContext);
@@ -21,10 +22,7 @@ export default function Header() {
                     <p>Welcome: {userInfo.username}</p>
                     <p className="logout" onClick={logout}>Logout</p>
                 </div>
-                
-                <form className="search-form" >
-                    <input type="text" name="search" placeholder="Find other people" />
-                </form>
+                <SearchBar/>
             </nav>
             
         </header>
