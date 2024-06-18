@@ -1,10 +1,12 @@
-import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useEffect, useState, useContext } from "react";
+import { useParams, Navigate } from "react-router-dom";
+import { UserContext } from "../UserContext";
 
 export default function UserProfile() {
     const { id } = useParams();
     const [userProfile, setUserProfile] = useState(null);
     const [posts, setPosts] = useState(null)
+    const {userInfo} = useContext(UserContext);
 
     useEffect(() => {
         const fetchUserProfile = async () => {
@@ -30,6 +32,10 @@ export default function UserProfile() {
 
     if (!userProfile) {
         return <div className="user-profile">Loading...</div>;
+    }
+    if ((userInfo.id || userInfo._id) === id) {
+        //Navigate to '/profile' if user is searching for its own profile
+        return <Navigate to={'/profile'}/>
     }
 
     return (
