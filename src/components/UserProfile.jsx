@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 export default function UserProfile() {
     const { id } = useParams();
     const [userProfile, setUserProfile] = useState(null);
+    const [posts, setPosts] = useState(null)
 
     useEffect(() => {
         const fetchUserProfile = async () => {
@@ -15,6 +16,7 @@ export default function UserProfile() {
                 if (response.ok) {
                     const profile = await response.json();
                     setUserProfile(profile);
+                    setPosts(profile.posts)
                 } else {
                     console.error('User profile not found');
                 }
@@ -31,9 +33,36 @@ export default function UserProfile() {
     }
 
     return (
-        <div className="user-profile">
-            <h1>{userProfile.username}</h1>
-            {/* Render other user profile details. To be implemented. */}
+    <main className="profile">
+        <div className="profile-info">
+            <span>
+                <img className="profile-pic" src="../src/assets/account_circle.png" alt="profile picture" />
+                <span>{userProfile.username}</span>
+            </span>
+            <span className="post-count">
+                <span>{userProfile.posts ? (userProfile.posts.length) : (0)}</span>
+                <span>Posts</span>
+            </span>
+            <span className="follower-count">
+                <span>{userProfile.followers ? (userProfile.followers.length) : (0)}</span>
+                <span>Followers</span>
+            </span>
+            <span className="following-count">
+                <span>{userProfile.following ? (userProfile.following.length) : (0)}</span>
+                <span>Following</span>
+            </span>
         </div>
+
+        <div className="profile-gallery">
+            {posts.length > 0 && (
+                 posts.map(post => (
+                    <img className="pic" src={`http://localhost:3000/${post.picture}`} key={post._id}/>
+                 ))
+            )} 
+        </div>
+        {posts.length === 0 && (
+            <div className="noPosts">No posts yet</div>
+        )}
+    </main>
     );
 };
