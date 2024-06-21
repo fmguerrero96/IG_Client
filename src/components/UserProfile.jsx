@@ -46,6 +46,19 @@ export default function UserProfile() {
         checkFollow();
     });
 
+    const handleFollow = async() => {
+        try{
+            const response = await fetch(`http://localhost:3000/follow/${userInfo.id || userInfo._id}/user?user=${id}`, {
+                credentials: 'include',
+                method: 'POST'
+            })
+            const res = await response.json()
+            setIsFollowing(!isFollowing)
+        } catch(err) {
+            console.log(err)
+        }
+    };
+
     if (!userProfile) {
         return <div className="user-profile">Loading...</div>;
     }
