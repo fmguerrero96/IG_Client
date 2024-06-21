@@ -17,7 +17,7 @@ export default function Profile() {
                     setPosts(profile.posts)
                 }
             } catch(err) {
-                console.log(err)
+                console.error('Error fetching profile:', err);
             }
         }
 
