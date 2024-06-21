@@ -292,10 +292,9 @@ footer a{
 
 .profile-info{
     display: flex;
-    /* border: 1px solid blue; */
     justify-content: space-between;
     width: 70%;
-    margin: auto;
+    margin: 0 auto 0 auto;
 }
 
 .edit-profile, .follow-btn{
@@ -321,6 +320,8 @@ div.profile-info > span{
 
 .profile {
     overflow: scroll;
+    display: flex;
+    flex-direction: column;
 }
 
 .profile-gallery{
@@ -330,6 +331,7 @@ div.profile-info > span{
     margin-top: 2%;
     background-color: rgb(224, 224, 224);
     border-radius: 6px;
+    flex: 1 1 auto;
 }
 
 .pic{
