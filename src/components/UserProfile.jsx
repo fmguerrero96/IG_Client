@@ -7,6 +7,7 @@ export default function UserProfile() {
     const [userProfile, setUserProfile] = useState(null);
     const [posts, setPosts] = useState(null)
     const {userInfo} = useContext(UserContext);
+    const [isFollowing, setIsFollowing] = useState(null)
 
     useEffect(() => {
         const fetchUserProfile = async () => {
@@ -28,7 +29,22 @@ export default function UserProfile() {
         };
 
         fetchUserProfile();
-    }, [id]);
+    }, [id, isFollowing]);
+
+    useEffect(() => {
+        const checkFollow = async() => {
+            try{
+                const response = await fetch(`http://localhost:3000/follow/${userInfo.id || userInfo._id}/user?user=${id}`, {
+                    credentials: 'include',
+                })
+                const follows = await response.json()
+                setIsFollowing(follows)
+            } catch(err) {
+                console.log(err)
+            }
+        }
+        checkFollow();
+    });
 
     if (!userProfile) {
         return <div className="user-profile">Loading...</div>;
@@ -59,7 +75,11 @@ export default function UserProfile() {
             </span>
         </div>
 
-        <button className="follow-btn">Follow</button>
+        {isFollowing ? (
+            <button className="follow-btn" onClick={handleFollow}>Unfollow</button>
+        ) : (
+            <button className="follow-btn" onClick={handleFollow}>Follow</button>
+        )}
 
         <div className="profile-gallery">
             {posts.length > 0 && (
