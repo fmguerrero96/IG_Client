@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import FeedCard from "./FeedCard";
 
 export default function HomePage() {
     const [posts, setPosts] = useState([]);
@@ -28,7 +29,7 @@ export default function HomePage() {
     return(
         <main className="home-page">
             <div>
-                not implemented
+                <FeedCard posts={posts}/>
             </div>
         </main>
     )
