@@ -399,6 +399,21 @@ div.profile-info > span{
     margin-right: 35px;
 }
 
+.emptyFeed{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    font-weight: 900;
+}
+
+.message{
+    margin-top: 3%;
+    font-size: 1rem;
+    font-weight: 100;
+}
+
 hr{
     width: 60%;
     border: none;
