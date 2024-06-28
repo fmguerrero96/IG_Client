@@ -222,9 +222,10 @@ header nav form input:focus{
 .home-page{
     display: flex;
     flex-direction: column;
+    overflow: scroll;
 }
 
-.home-page div, .create-post, .profile, .user-profile{
+ .create-post, .profile, .user-profile{
     height: 80vh;
     margin: auto;
     width: 60%;
@@ -251,17 +252,13 @@ footer a{
 .create-post form{
     display: flex;
     flex-direction: column;
-    /* border: 1px solid white; */
     height: 100%;
     padding: 5% 10% 5% 10%;
-    /* align-items: center; */
 }
 
 .create-post form h2{
     font-size: 2rem;
     margin-bottom: 7%;
-    /* border-bottom: 1px solid rgb(197, 197, 197); */
-    /* align-self: center; */
 }
 
 .create-post form input{
@@ -349,4 +346,51 @@ div.profile-info > span{
     text-align: center;
     margin-top: 20%;
     font-size: 2rem;
+}
+
+.home-page div{
+    height: 80vh;
+    margin: auto;
+    width: 70%;
+    color: white;
+}
+
+.post-card{
+    padding-top: 20px;
+    width: 100%;
+    /* border-bottom: 1px solid rgb(197, 197, 197); */
+    /* border-bottom: 1px solid white; */
+    display: flex;
+    flex-direction: column;
+}
+
+.post-card img{
+    aspect-ratio: 1 / 1.1;
+    max-width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.post-info{
+    display: flex;
+    flex-direction: column;
+    /* border: 1px solid white; */
+    gap: 10px;
+    padding-left: 35px;
+    padding-top: 10px;
+}
+
+.author{
+    font-weight: 900;
+}
+
+.caption{
+    font-weight: 100;
+}
+
+hr{
+    width: 60%;
+    border: none;
+    height: 1px;
+    background-color: rgb(224, 224, 224);
 }
