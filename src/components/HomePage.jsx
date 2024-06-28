@@ -28,9 +28,7 @@ export default function HomePage() {
         
     return(
         <main className="home-page">
-            <div>
-                <FeedCard posts={posts}/>
-            </div>
+            <FeedCard posts={posts}/>
         </main>
     )
 };
