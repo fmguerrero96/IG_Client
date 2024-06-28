@@ -9,8 +9,8 @@ export default function FeedCard({ posts }){
                         <img src={`http://localhost:3000/${post.picture}`} />
 
                         <div className="post-info">
-                            <span className="author">{post.author.username}: 
-                                <span className="caption"> {post.caption}</span>
+                            <span className="author">{post.author.username}
+                                <span className="caption">...{post.caption}</span>
 
                                 <svg className="icon-heart" xmlns="http://www.w3.org/2000/svg" 
                                     height="24px" 
