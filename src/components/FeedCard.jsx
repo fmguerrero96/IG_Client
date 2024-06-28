@@ -38,7 +38,10 @@ export default function FeedCard({ posts }){
                     </div>
                 ))
                 ) : (
-                <div>No Posts to display</div>
+                <div className="emptyFeed">
+                    <p>Nothing to show here</p>
+                    <p className="message">Use the search bar to find and follow people </p>
+                </div>
             )}
         </div>
     )
