@@ -29,10 +29,10 @@ export default function FeedCard({ posts }){
                                 </svg>
                             </span>
 
-                            <span>{post.likes_count} likes</span>
+                            <span>{post.likes_count.length} likes</span>
 
                             <span>{post.comments.length} comments</span>
-                            <span>{format(post.time_stamp, 'MMM d, yyyy HH:mm') }</span>
+                            <span>{format(post.time_stamp, 'MMM d, yyyy') }</span>
                         </div>
                         <hr />
                     </div>
