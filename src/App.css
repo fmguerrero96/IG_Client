@@ -374,7 +374,6 @@ div.profile-info > span{
 .post-info{
     display: flex;
     flex-direction: column;
-    /* border: 1px solid white; */
     gap: 10px;
     padding-left: 35px;
     padding-top: 10px;
@@ -382,10 +381,20 @@ div.profile-info > span{
 
 .author{
     font-weight: 900;
+    display: flex;
 }
 
 .caption{
     font-weight: 100;
+}
+
+.icon-heart{
+    margin-left: auto;
+    margin-right: 2%;
+}
+
+.icon-comment{
+    margin-right: 35px;
 }
 
 hr{
