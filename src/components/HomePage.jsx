@@ -25,7 +25,6 @@ export default function HomePage() {
                         } else {
                             post.hasLiked = false
                         }
-                        console.log(post)
                     });
                     setPosts(feed);
                 } else {
