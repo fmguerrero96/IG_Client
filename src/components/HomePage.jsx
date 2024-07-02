@@ -1,8 +1,10 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import FeedCard from "./FeedCard";
+import { UserContext } from "../UserContext";
 
 export default function HomePage() {
     const [posts, setPosts] = useState([]);
+    const {userInfo} = useContext(UserContext);
 
     useEffect(() => {
         const fetchFeed = async () => {
@@ -14,6 +16,17 @@ export default function HomePage() {
 
                 if (response.ok) {
                     const feed = await response.json();
+
+                    //Check if posts in feed have been liked by logged in user
+                    feed.forEach(post => {
+                        //set the post to like/not liked
+                        if(post.likes_count.includes(userInfo.id) || post.likes_count.includes((userInfo._id))){
+                            post.hasLiked = true
+                        } else {
+                            post.hasLiked = false
+                        }
+                        console.log(post)
+                    });
                     setPosts(feed);
                 } else {
                     console.error('Failed to fetch feed');
@@ -24,7 +37,7 @@ export default function HomePage() {
         };
 
         fetchFeed();
-    }, [posts.likes_count]);
+    }, [userInfo]);
 
     const handleLikeClick = async (postId, index) => {
         try {
@@ -35,7 +48,6 @@ export default function HomePage() {
 
             if (response.ok) {
                 const result = await response.json();
-                console.log(result)
                 const updatedPosts = [...posts];
                 updatedPosts[index].likes_count = result.likes_count;
                 updatedPosts[index].hasLiked = result.hasLiked;
