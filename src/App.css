@@ -227,7 +227,7 @@ header nav form input:focus{
     overflow: scroll;
 }
 
- .create-post, .profile, .user-profile{
+ .create-post, .profile, .user-profile, .post-page{
     height: 80vh;
     margin: auto;
     width: 60%;
