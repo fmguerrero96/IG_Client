@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 export default function Profile() {
     const [userProfile, setUserProfile] = useState({})
@@ -50,7 +51,9 @@ export default function Profile() {
             {posts.length > 0 && (
                 <div className="profile-gallery">
                     {posts.map(post => (
-                        <img className="pic" src={`http://localhost:3000/${post.picture}`} key={post._id}/>
+                        <Link className="img-link" key={post._id} to={`/post/${post._id}`}>
+                            <img className="pic" src={`http://localhost:3000/${post.picture}`} />
+                        </Link>
                         ))
                     }
                 </div> 

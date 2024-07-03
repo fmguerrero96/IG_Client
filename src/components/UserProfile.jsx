@@ -1,5 +1,5 @@
 import { useEffect, useState, useContext } from "react";
-import { useParams, Navigate } from "react-router-dom";
+import { useParams, Navigate, Link } from "react-router-dom";
 import { UserContext } from "../UserContext";
 
 export default function UserProfile() {
@@ -97,7 +97,9 @@ export default function UserProfile() {
         {posts.length > 0 && (
             <div className="profile-gallery">
                 {posts.map(post => (
-                    <img className="pic" src={`http://localhost:3000/${post.picture}`} key={post._id}/>
+                    <Link className="img-link" key={post._id} to={`/post/${post._id}`} >
+                        <img className="pic" src={`http://localhost:3000/${post.picture}`}/>
+                    </Link>
                     ))
                 }
             </div> 
