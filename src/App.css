@@ -435,3 +435,12 @@ hr{
     height: 1px;
     background-color: rgb(224, 224, 224);
 }
+
+.post-picture{
+    display: block;
+    max-width:500px;
+    max-height:500px;
+    width: auto;
+    height: auto;
+    padding-top: 2%;
+}
