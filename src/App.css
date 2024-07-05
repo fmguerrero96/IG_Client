@@ -447,3 +447,19 @@ hr{
     height: auto;
     padding-top: 2%;
 }
+
+.single-post{
+    display: flex;
+    flex-direction: column;
+    max-width: 55%;
+}
+
+.single-post-info{
+    margin-top: 4%;
+    display: flex;
+    flex-direction: column;
+}
+
+.container{
+    display: flex;
+}
