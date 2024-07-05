@@ -16,7 +16,6 @@ export default function PostPage() {
                 if (response.ok){
                     const postInfo = await response.json();
                     setPost(postInfo);
-                    console.log(postInfo)
                 }
             } catch(err){
                 console.error('Error fetching user profile:', err);
