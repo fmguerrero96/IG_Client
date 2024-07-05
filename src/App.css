@@ -326,7 +326,6 @@ div.profile-info > span{
 .profile-gallery{
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
     margin-top: 2%;
     background-color: rgb(224, 224, 224);
     border-radius: 6px;
