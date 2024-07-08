@@ -7,6 +7,7 @@ export default function PostPage() {
     const {userInfo} = useContext(UserContext);
     const { id } = useParams();
     const [post, setPost] = useState({});
+    const [comment, setComment] = useState('');
 
     useEffect(() => {
         const fetchPost = async () => {
@@ -52,6 +53,26 @@ export default function PostPage() {
         }
     };
 
+    const handleComment = async (e) => {
+        e.preventDefault();
+
+        try{
+            const response = await fetch(`http://localhost:3000/comment/${id}`, {
+                method: 'POST',
+                body: JSON.stringify({comment}),
+                headers: {'Content-Type': 'application/json'},
+                credentials: 'include',
+            })
+
+            if(response.ok){
+                setComment('')
+            }
+
+        } catch(err){
+            console.error('Could not post new comment', err);
+        }
+    }
+
     return(
         <div  className="post-page">
             <div className="single-post">
@@ -80,17 +101,21 @@ export default function PostPage() {
                 </div>
             </div>
             <div className="comment-section">
-                <form>
+                <form onSubmit={handleComment}>
                     <textarea type="text" 
-                    name="comment" 
-                    maxLength={75}
-                    placeholder="Add a comment..."
-                    rows={3}
-                    // value={comment}
-                    // onChange={} 
+                        name="comment" 
+                        required
+                        maxLength={75}
+                        placeholder="Add a comment..."
+                        rows={3}
+                        value={comment}
+                        onChange={e => setComment(e.target.value)} 
                     />
                     <button>submit</button>
                 </form>
+                {/* <div className="comments">
+                    {post?.comments}
+                </div> */}
             </div>
         </div>
     )
