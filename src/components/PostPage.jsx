@@ -58,8 +58,8 @@ export default function PostPage() {
                 <img className="post-picture" src={`http://localhost:3000/${post.picture}`}/>
                 <div className="single-post-info">
                     <div className="container">
-                        <span style={{fontWeight: '900'}}>{post.author?.username}...</span>
-                        <span>{post.caption}</span>
+                        <span style={{fontWeight: '900'}}>{post.author?.username}</span>
+                        <span>...{post.caption}</span>
 
                         <svg className={`icon-heart${post.hasLiked ? 'Liked' : ''}`} 
                         xmlns="http://www.w3.org/2000/svg" 
@@ -78,6 +78,19 @@ export default function PostPage() {
                     <p>{post.time_stamp && format(post.time_stamp, 'MMM d, yyyy')}</p>
                     
                 </div>
+            </div>
+            <div className="comment-section">
+                <form>
+                    <textarea type="text" 
+                    name="comment" 
+                    maxLength={75}
+                    placeholder="Add a comment..."
+                    rows={3}
+                    // value={comment}
+                    // onChange={} 
+                    />
+                    <button>submit</button>
+                </form>
             </div>
         </div>
     )
