@@ -53,7 +53,7 @@ export default function CommentSection({ postID }) {
                     value={comment}
                     onChange={e => setComment(e.target.value)} 
                 />
-                <button>submit</button>
+                <button>Submit</button>
             </form>
             {commentsArray.length ? (
                 <div className="comments-container">

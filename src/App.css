@@ -462,3 +462,55 @@ hr{
 .container{
     display: flex;
 }
+
+.post-page{
+    display: flex;
+}
+
+.comment-section{
+    margin-left: 2%;
+    margin-top: 1%;
+    /* border: 1px solid white; */
+    width: 30%;
+    flex-grow: 1;
+    overflow: scroll;
+}
+
+.comment-section form{
+    display: flex;
+}
+
+.comment-section form textarea{
+    width: 100%;
+    /* background-color: rgb(0, 0, 0); */
+    background-color: rgb(43, 43, 43);
+    border: none;
+    padding: 2px;
+    color: white;
+    resize: none;
+    font-family: inherit;
+}
+
+.comment-section form textarea:focus{
+    outline: none;
+}
+
+.comment-section button{
+    background-color: black;
+    color: rgb(0, 136, 254);
+    border: none;
+    cursor: pointer;
+}
+
+.comment-section button:hover{
+    background-color: rgb(0, 136, 254);
+    color: white;
+}
+
+.comments-container{
+    margin-top: 3%;
+}
+
+.comment{
+    margin-bottom: 8%;
+}
