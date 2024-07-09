@@ -19,7 +19,7 @@ export default function CommentSection({ postID }) {
             }
         }
         getComments()
-    }, [])
+    }, [comment])
 
     const handleComment = async (e) => {
         e.preventDefault();
@@ -55,9 +55,21 @@ export default function CommentSection({ postID }) {
                 />
                 <button>submit</button>
             </form>
-            <div className="comments">
-                {commentsArray[0]?.author.username}{commentsArray[1]?.author.username}
-            </div>
+            {commentsArray.length ? (
+                <div className="comments-container">
+                    {
+                        commentsArray.map(comment => (
+                            <div className="comment" key={comment._id}>
+                                <span style={{fontWeight: "900"}}>{comment.author.username} </span><span>{comment.text}</span>
+                            </div>
+                        ))
+                    }
+                </div>
+            ) : (
+                <div className="no-comments">
+                    Be the first one to comment
+                </div>
+            )}
         </div>
     )
 };
