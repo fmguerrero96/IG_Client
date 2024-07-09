@@ -2,12 +2,12 @@ import { useContext, useState, useEffect } from "react";
 import { UserContext } from "../UserContext";
 import { useParams } from "react-router-dom";
 import { format } from "date-fns";
+import CommentSection from "./CommentSection";
 
 export default function PostPage() {
     const {userInfo} = useContext(UserContext);
     const { id } = useParams();
     const [post, setPost] = useState({});
-    const [comment, setComment] = useState('');
 
     useEffect(() => {
         const fetchPost = async () => {
@@ -24,13 +24,14 @@ export default function PostPage() {
                         postInfo.hasLiked = false
                     }
                     setPost(postInfo);
+                    // console.log(postInfo)
                 }
             } catch(err){
                 console.error('Error fetching user profile:', err);
             }
         }
         fetchPost()
-    }, [post.likes_count]);
+    },[]);
 
     const handleLikeClick = async (postId) => {
         try {
@@ -52,26 +53,6 @@ export default function PostPage() {
             console.error('Error liking/unliking post:', error);
         }
     };
-
-    const handleComment = async (e) => {
-        e.preventDefault();
-
-        try{
-            const response = await fetch(`http://localhost:3000/comment/${id}`, {
-                method: 'POST',
-                body: JSON.stringify({comment}),
-                headers: {'Content-Type': 'application/json'},
-                credentials: 'include',
-            })
-
-            if(response.ok){
-                setComment('')
-            }
-
-        } catch(err){
-            console.error('Could not post new comment', err);
-        }
-    }
 
     return(
         <div  className="post-page">
@@ -100,23 +81,7 @@ export default function PostPage() {
                     
                 </div>
             </div>
-            <div className="comment-section">
-                <form onSubmit={handleComment}>
-                    <textarea type="text" 
-                        name="comment" 
-                        required
-                        maxLength={75}
-                        placeholder="Add a comment..."
-                        rows={3}
-                        value={comment}
-                        onChange={e => setComment(e.target.value)} 
-                    />
-                    <button>submit</button>
-                </form>
-                {/* <div className="comments">
-                    {post?.comments}
-                </div> */}
-            </div>
+            <CommentSection postID={id}/>
         </div>
     )
 };
