@@ -1,12 +1,13 @@
 import { useContext, useState, useEffect } from "react";
 import { UserContext } from "../UserContext";
-import { useParams } from "react-router-dom";
+import { useParams, Navigate } from "react-router-dom";
 
 export default function EditPost() {
     // const {userInfo} = useContext(UserContext);
     const { id } = useParams();
     const [post, setPost] = useState({});
     const [caption, setCaption] = useState('');
+    const [updated, setUpdated] = useState(false)
 
     useEffect(() => {
         const fetchPost = async () => {
@@ -18,7 +19,6 @@ export default function EditPost() {
                     const postInfo = await response.json();
                     setPost(postInfo);
                     setCaption(postInfo.caption)
-                    // console.log(postInfo)
                 }
             } catch(err){
                 console.error('Error fetching user profile:', err);
@@ -40,11 +40,15 @@ export default function EditPost() {
         })
 
         if(response.ok){
-            console.log(await response.json())
+            setUpdated(true)
         } else {
             console.log(err)
         }
     };
+
+    if(updated){
+        return <Navigate  to={`/post/${id}`}/>
+    }
 
     return (
         <div className="edit-post-page">
