@@ -26,7 +26,7 @@ function App() {
           <Route path='/profile' element={<Profile/>} />
           <Route path='/user/:id' element={<UserProfile/>}/>
           <Route path='/post/:id' element={<PostPage/>} />
-          <Route path='/editPost/:id' />
+          <Route path='/editPost/:id' element={<EditPost/>} />
         </Route>
       </Routes>
     </UserContextProvider>
