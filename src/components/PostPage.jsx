@@ -1,6 +1,6 @@
 import { useContext, useState, useEffect } from "react";
 import { UserContext } from "../UserContext";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { format } from "date-fns";
 import CommentSection from "./CommentSection";
 
@@ -81,7 +81,9 @@ export default function PostPage() {
                     
                     <p style={{marginBottom: '1%'}}>{post.likes_count?.length} Likes</p>
                     <p>{post.time_stamp && format(post.time_stamp, 'MMM d, yyyy')}</p>
-                    
+                    {post.author?._id === userInfo.id && (
+                        <p><Link to={`/editPost/${post._id}`}>Edit Post</Link></p>
+                    )}
                 </div>
             </div>
             <CommentSection postID={id}/>
