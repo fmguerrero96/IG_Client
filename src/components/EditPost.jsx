@@ -26,7 +26,26 @@ export default function EditPost() {
         }
         fetchPost()
     },[]);
-    
+
+    const updatePost = async (e) => {
+        e.preventDefault();
+
+        const response = await fetch(`http://localhost:3000/posts/update/${id}`, {
+            credentials: 'include',
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ caption }),
+        })
+
+        if(response.ok){
+            console.log(await response.json())
+        } else {
+            console.log(err)
+        }
+    };
+
     return (
         <div className="edit-post-page">
             <div className="edit-container">

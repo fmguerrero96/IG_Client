@@ -535,3 +535,22 @@ hr{
 .edit-post-link:hover{
     color: white;
 }
+
+.edit-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.edit-pic{
+    max-width:500px;
+    max-height:500px;
+    margin-top: 3%;
+}
+
+.edit-post-info{
+    margin-top: 2%;
+    display: flex;
+    flex-direction: column;
+}
