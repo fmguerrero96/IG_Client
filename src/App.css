@@ -228,7 +228,7 @@ header nav form input:focus{
 }
 
  .create-post, .profile, .user-profile,
-  .post-page, .edit-post-page{
+  .post-page, .edit-post-page, .edit-profile-page{
     height: 80vh;
     margin: auto;
     width: 60%;
