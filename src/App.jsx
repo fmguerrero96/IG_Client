@@ -9,6 +9,7 @@ import Layout from './components/Layout'
 import Profile from './components/Profile'
 import UserProfile from './components/UserProfile'
 import PostPage from './components/PostPage'
+import EditPost from './components/EditPost'
 import {Route, Routes} from "react-router-dom"
 import { UserContextProvider } from './UserContext'
 
@@ -25,6 +26,7 @@ function App() {
           <Route path='/profile' element={<Profile/>} />
           <Route path='/user/:id' element={<UserProfile/>}/>
           <Route path='/post/:id' element={<PostPage/>} />
+          <Route path='/editPost/:id' />
         </Route>
       </Routes>
     </UserContextProvider>
