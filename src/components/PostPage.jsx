@@ -8,6 +8,7 @@ export default function PostPage() {
     const {userInfo} = useContext(UserContext);
     const { id } = useParams();
     const [post, setPost] = useState({});
+    const [flag, setFlag] = useState(null);
 
     useEffect(() => {
         const fetchPost = async () => {
@@ -18,6 +19,7 @@ export default function PostPage() {
                 if (response.ok){
                     const postInfo = await response.json();
                     //Check if user has liked post
+                    console.log(postInfo)
                     if(postInfo.likes_count.includes(userInfo.id)){
                         postInfo.hasLiked = true
                     } else {
@@ -29,9 +31,10 @@ export default function PostPage() {
             } catch(err){
                 console.error('Error fetching user profile:', err);
             }
+            setFlag(true)
         }
         fetchPost()
-    },[]);
+    },[flag]);
 
     const handleLikeClick = async (postId) => {
         try {
@@ -52,6 +55,7 @@ export default function PostPage() {
         } catch (error) {
             console.error('Error liking/unliking post:', error);
         }
+        setFlag(!flag)
     };
 
     return(
