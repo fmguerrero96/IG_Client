@@ -46,7 +46,9 @@ export default function Profile() {
                 </span>
             </div>
 
-            <button className="edit-profile">Edit Profile</button>
+            <Link className="edit-profile-link" to={`/editProfile`}>
+                <button className="edit-profile">Edit Profile</button>
+            </Link>
 
             {posts.length > 0 && (
                 <div className="profile-gallery">
