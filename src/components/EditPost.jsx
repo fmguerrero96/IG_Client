@@ -1,13 +1,12 @@
-import { useContext, useState, useEffect } from "react";
-import { UserContext } from "../UserContext";
+import { useState, useEffect } from "react";
 import { useParams, Navigate } from "react-router-dom";
 
 export default function EditPost() {
-    // const {userInfo} = useContext(UserContext);
     const { id } = useParams();
     const [post, setPost] = useState({});
     const [caption, setCaption] = useState('');
-    const [updated, setUpdated] = useState(false)
+    const [updated, setUpdated] = useState(false);
+    const [deleted, setDeleted] = useState(false);
 
     useEffect(() => {
         const fetchPost = async () => {
@@ -46,8 +45,24 @@ export default function EditPost() {
         }
     };
 
+    const deletePost = async () => {
+        const response = await fetch(`http://localhost:3000/posts/delete/${id}`, {
+            credentials: 'include',
+            method: 'DELETE',
+        })
+
+        if(response.ok){
+            setDeleted(true)
+        } else {
+            console.log(error)
+        }
+    }
+
     if(updated){
         return <Navigate  to={`/post/${id}`}/>
+    }
+    if(deleted){
+        return <Navigate to={'/homePage'}/>
     }
 
     return (
@@ -65,7 +80,7 @@ export default function EditPost() {
                         onChange={e => setCaption(e.target.value)} /> 
                         <button>Update</button>
                     </form>
-                    <button>Delete Post</button>
+                    <button onClick={deletePost} >Delete Post</button>
                 </div>
             </div>
         </div>
