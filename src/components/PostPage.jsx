@@ -19,7 +19,6 @@ export default function PostPage() {
                 if (response.ok){
                     const postInfo = await response.json();
                     //Check if user has liked post
-                    console.log(postInfo)
                     if(postInfo.likes_count.includes(userInfo.id)){
                         postInfo.hasLiked = true
                     } else {
