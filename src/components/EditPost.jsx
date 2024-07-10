@@ -1,6 +1,6 @@
 export default function EditPost() {
     return (
-        <div>
+        <div className="edit-post-page">
             NOT IMPLEMENTED
         </div>
     )
