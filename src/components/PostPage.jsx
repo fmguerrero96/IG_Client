@@ -82,7 +82,9 @@ export default function PostPage() {
                     <p style={{marginBottom: '1%'}}>{post.likes_count?.length} Likes</p>
                     <p>{post.time_stamp && format(post.time_stamp, 'MMM d, yyyy')}</p>
                     {post.author?._id === userInfo.id && (
-                        <p><Link to={`/editPost/${post._id}`}>Edit Post</Link></p>
+                        <p>
+                            <Link className="edit-post-link" to={`/editPost/${post._id}`}>Edit Post</Link>
+                        </p>
                     )}
                 </div>
             </div>
