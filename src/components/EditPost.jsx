@@ -68,6 +68,7 @@ export default function EditPost() {
     return (
         <div className="edit-post-page">
             <div className="edit-container">
+                <div className="edit-post-title">Edit this post</div>
                 <img className="edit-pic" src={`http://localhost:3000/${post.picture}`}/>
                 <div className="edit-post-info">
                     <form onSubmit={updatePost} >
@@ -80,7 +81,7 @@ export default function EditPost() {
                         onChange={e => setCaption(e.target.value)} /> 
                         <button>Update</button>
                     </form>
-                    <button onClick={deletePost} >Delete Post</button>
+                    <button className="delete-post" onClick={deletePost} >Delete Post</button>
                 </div>
             </div>
         </div>
