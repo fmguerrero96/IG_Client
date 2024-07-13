@@ -76,7 +76,7 @@ export default function UserProfile() {
                 </div>) : (
                     <img className="profile-pic" src="../src/assets/account_circle.png" alt="profile picture" />
                 )}
-                <span>{userProfile.username}</span>
+                <span style={{fontWeight: "900"}}>{userProfile.username}</span>
             </span>
             <span className="post-count">
                 <span>{userProfile.posts ? (userProfile.posts.length) : (0)}</span>
