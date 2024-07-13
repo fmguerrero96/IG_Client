@@ -64,6 +64,7 @@ export default function EditProfile() {
     }
     return(
         <div className="edit-profile-page">
+            <div className="edit-title">Edit Profile</div>
             <form onSubmit={updateProfile}>
                 <div className="form_group">
                     <label htmlFor="username">Username: </label>
@@ -76,8 +77,8 @@ export default function EditProfile() {
                     onChange={e => setUsername(e.target.value)} />
                 </div>
 
-                <div>
-                    <label htmlFor="file">Profile Pictre: </label>
+                <div className="form_group">
+                    <label htmlFor="file">Profile Picture: </label>
                     <input type="file"
                     name="file"
                     id="file"
