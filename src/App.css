@@ -297,6 +297,18 @@ footer a{
     margin: 0 auto 0 auto;
 }
 
+.circle {
+    border-radius: 50%;
+    height: 120px;
+    width: 120px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 15% 0 10% 0;
+    border: 2px solid white;
+   }
+
 .edit-profile, .follow-btn{
     margin-left: 53%;
     width: 20%;
