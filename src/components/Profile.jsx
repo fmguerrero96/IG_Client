@@ -29,7 +29,11 @@ export default function Profile() {
         <main className="profile">
             <div className="profile-info">
                 <span>
-                    <img className="profile-pic" src="../src/assets/account_circle.png" alt="profile picture" />
+                    {userProfile.profile_pic ? (<div className="circle">
+                        <img className="profile-pic" src={`http://localhost:3000/${userProfile.profile_pic}`}/>
+                    </div>) : (
+                       <img className="profile-pic" src="../src/assets/account_circle.png" alt="profile picture" />
+                    )}
                     <span>{userProfile.username}</span>
                 </span>
                 <span className="post-count">
